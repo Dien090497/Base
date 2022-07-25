@@ -5,6 +5,15 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;echo &quot;.env.staging&quot; &gt; /tmp/envfile&#10;">
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -14,9 +23,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "Base.app"
-               BlueprintName = "Base"
+               BlueprintIdentifier = "24F7814B287EB43600D6E656"
+               BuildableName = "Base Staging.app"
+               BlueprintName = "Base Staging"
                ReferencedContainer = "container:Base.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +53,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Base.app"
-            BlueprintName = "Base"
+            BlueprintIdentifier = "24F7814B287EB43600D6E656"
+            BuildableName = "Base Staging.app"
+            BlueprintName = "Base Staging"
             ReferencedContainer = "container:Base.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,9 +70,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Base.app"
-            BlueprintName = "Base"
+            BlueprintIdentifier = "24F7814B287EB43600D6E656"
+            BuildableName = "Base Staging.app"
+            BlueprintName = "Base Staging"
             ReferencedContainer = "container:Base.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

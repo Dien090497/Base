@@ -3,8 +3,16 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "android": "react-native run-android --no-jetifier --variant=devDebug --appId 'com.base.dev'",
+    "android-stg": "react-native run-android --no-jetifier --variant=stagingDebug --appId 'com.base.stg'",
+    "android-prod": "react-native run-android --no-jetifier --variant=productDebug --appId 'com.base'",
+    "android-apk": "export ENVFILE=.env.development && cd android && ./gradlew assembleDevRelease && cd ..",
+    "android-apk-stg": "export ENVFILE=.env.staging && cd android && ./gradlew assembleStagingRelease && cd ..",
+    "android-apk-prod": "export ENVFILE=.env.production && cd android && ./gradlew assembleProductRelease && cd ..",
+    "android-bundle": "export ENVFILE=.env.production && cd android && ./gradlew bundleProductRelease && cd ..",
+    "ios": "react-native run-ios --configuration Debug --scheme 'Base Dev' --simulator='iPhone 13'",
+    "ios-stg": "react-native run-ios --configuration Debug --scheme 'Base Staging' --simulator='iPhone 13'",
+    "ios-prod": "react-native run-ios --configuration Debug --scheme 'Base' --simulator='iPhone 13'",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"

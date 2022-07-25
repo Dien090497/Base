@@ -1,3 +1,8 @@
+project.ext.envConfigFiles = [
+    dev: ".env.dev",
+    staging: ".env.staging",
+    product: ".env.product",
+]
 apply plugin: "com.android.application"
 
 import com.android.build.OutputFile
@@ -78,10 +83,11 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    enableHermes: false,  // clean and rebuild if changing
+    enableHermes: true,  // clean and rebuild if changing
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -133,13 +139,30 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
+    flavorDimensions "enviroment"
+    productFlavors {
+        dev {
+            dimension "enviroment"
+            resValue "string", "app_name", project.env.get("APP_NAME")
+        }
+        staging {
+           dimension "enviroment"
+            resValue "string", "app_name", project.env.get("APP_NAME")
+        }
+        product {
+            dimension "enviroment"
+            resValue "string", "app_name", project.env.get("APP_NAME")
+        }
+    }
     defaultConfig {
         applicationId "com.base"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
+        applicationId env.get("ANDROID_APP_ID")
+        versionCode Integer.valueOf(env.get("ANDROID_APP_VERSION_CODE"))
+        versionName env.get("ANDROID_APP_VERSION_NAME")
+        resValue "string", "build_config_package", "com.base"
 
         if (isNewArchitectureEnabled()) {
             // We configure the NDK build only if you decide to opt-in for the New Architecture.
