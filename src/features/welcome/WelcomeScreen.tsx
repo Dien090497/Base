@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { View, Text, Button, TouchableOpacity } from "react-native";
+import {View, Text, Button, TouchableOpacity} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {signIn} from '../../state-management/redux/user/action';
 import Config from 'react-native-config';
@@ -27,7 +27,6 @@ function WelcomeScreen() {
                 status: true,
               },
               res => {
-                console.log('AAAAAAAAA', res);
                 setMes(res.data);
               },
             ),
@@ -35,9 +34,9 @@ function WelcomeScreen() {
         }}
       />
 
-      <Text style={{color: 'black'}}>RESPONSE</Text>
+      <Text style={{color: 'yellow'}}>RESPONSE</Text>
       <Text style={{color: 'black'}}>{Config.ENV}</Text>
-      <TouchableOpacity></TouchableOpacity>
+      <TouchableOpacity />
       {mes?.err ? <Text style={{color: 'black'}}>{mes?.err}</Text> : null}
     </View>
   );

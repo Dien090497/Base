@@ -13,14 +13,11 @@ const Stack = createNativeStackNavigator();
 const AppStack = () => {
   return (
     <Stack.Navigator screenOptions={stackNavigationConfigs}>
-      <Stack.Screen
-        name={AUTHENTICATE_ROUTE.WELCOME_SCREEN}
-        component={WelcomeScreen}
-      />
-      <Stack.Screen
-        name={AUTHENTICATE_ROUTE.LOGIN_SCREEN}
-        component={LoginScreen}
-      />
+      {/*<Stack.Screen*/}
+      {/*  name={AUTHENTICATE_ROUTE.WELCOME_SCREEN}*/}
+      {/*  component={WelcomeScreen}*/}
+      {/*/>*/}
+      <Stack.Screen name={'main'} component={LoginScreen} />
     </Stack.Navigator>
   );
 };
